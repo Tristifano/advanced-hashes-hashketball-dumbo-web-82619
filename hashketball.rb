@@ -164,6 +164,51 @@ def team_colors(team)
     return  game_hash[:away][:colors]
   end
 end
+<<<<<<< HEAD
+=======
+
+def team_names
+  team_array = []
+  team_array.push(game_hash[:home][:team_name])
+  team_array.push(game_hash[:away][:team_name])
+  team_array
+end
+
+def player_numbers(team)
+  jersey_array = []
+    if game_hash[:home][:team_name] == team
+      game_hash[:home][:players].each {|player_array|
+        player_array.each {|player,stats|
+          jersey_array.push(stats[:number])
+        }
+      }
+    elsif game_hash[:away][:team_name] 
+      game_hash[:away][:players].each {|player_array|
+        player_array.each {|player,stats|
+          jersey_array.push(stats[:number])
+        }
+      }
+    end
+  jersey_array
+end
+
+def player_stats(name)
+  game_hash[:home][:players].each {|player_array|
+    player_array.each {|player,stats|
+    if player == name
+      return stats
+    end
+    }
+  }
+  game_hash[:away][:players].each {|player_array|
+    player_array.each {|player,stats|
+    if player == name
+      return stats
+    end
+    }
+  }
+end
+>>>>>>> 19590b4a4dfab193d76d74c17e14b926b1bd10ba
 
 def team_names
   team_array = []
